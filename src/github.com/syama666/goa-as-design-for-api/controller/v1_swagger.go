@@ -20,7 +20,6 @@ func NewV1SwaggerController(service *goa.Service) *V1SwaggerController {
 func (c *V1SwaggerController) ViewJSON(ctx *app.ViewJSONV1SwaggerContext) error {
 	swaggerBytes, err := swagger.Asset("gen/swagger/swagger.json")
 	if err != nil {
-		//ddlogger.GetDefaultLogger().Error(nil, err.Error())
 		c.Service.LogError(err.Error())
 		ctx.InternalServerError()
 		return nil
